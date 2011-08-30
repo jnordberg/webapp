@@ -1,1 +1,0 @@
-../../external/r.js/dist/r-0.26.0.js
