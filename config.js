@@ -2,7 +2,7 @@
   appDir: 'app',
   baseUrl: 'src',
   // Uncomment to turn off uglify minification.
-  optimize: 'none', // FIXME: optimize breaks require lib
+  //optimize: 'none',
   dir: 'build',
   paths: {
     cs: 'lib/cs',

@@ -27,7 +27,7 @@ task 'build', 'builds project', ->
     mainjs = fs.readFileSync 'build/src/main.js'
     reqjs = fs.readFileSync 'build/src/lib/require-bare.js'
 
-    fs.writeFileSync('build/js/app.js', reqjs + '\n' + mainjs);
+    fs.writeFileSync('build/js/app.js', reqjs + ';\n' + mainjs);
 
     #fs.renameSync 'build/src/main.js', 'build/js/app.js'
     rmdirSyncRecursive 'build/src'
