@@ -23,14 +23,14 @@ task 'build', 'builds project', ->
     if error
       throw error
 
-    fs.renameSync 'build/src/main.js', 'build/js/app.js'
+    # build app.js
+    mainjs = fs.readFileSync 'build/src/main.js'
+    reqjs = fs.readFileSync 'build/src/lib/require-bare.js'
+
+    fs.writeFileSync('build/js/app.js', reqjs + '\n' + mainjs);
+
+    #fs.renameSync 'build/src/main.js', 'build/js/app.js'
     rmdirSyncRecursive 'build/src'
     fs.unlinkSync 'build/build.txt'
-
-    # glue require.js to app
-    appjs = fs.readFileSync 'build/js/app.js'
-    reqjs = fs.readFileSync 'build/js/require.js'
-
-    fs.writeFileSync('build/js/app.js', reqjs + '\n' + appjs);
 
     sys.print 'done!\n'
