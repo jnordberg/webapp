@@ -1,0 +1,9 @@
+[submodule "external/requirejs"]
+	path = external/requirejs
+	url = https://github.com/jrburke/requirejs.git
+[submodule "external/require-cs"]
+	path = external/require-cs
+	url = https://github.com/jrburke/require-cs.git
+[submodule "external/r.js"]
+	path = external/r.js
+	url = https://github.com/jrburke/r.js.git
