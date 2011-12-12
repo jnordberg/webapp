@@ -1,3 +1,4 @@
+
 sys = require 'sys'
 fs = require 'fs'
 exec = require('child_process').exec;
@@ -15,20 +16,18 @@ rmdirSyncRecursive = (path) ->
       fs.unlinkSync currPath
   fs.rmdirSync path
 
-task 'build', 'builds project', ->
-  # could probably load the js directly
-  sys.print 'building project...'
-  exec 'rm -r build/* && node bin/r.js -o config.js', (error, stdout, stderr) ->
-    sys.print stdout
+task 'setup', 'install deps & such', ->
+  exec './bin/setup.sh', (error, stdout, stderr) ->
+    sys.print stdout + stderr
     if error
       throw error
 
-    # build app.js
-    mainjs = fs.readFileSync 'build/src/main.js'
-    reqjs = fs.readFileSync 'build/src/lib/require-bare.js'
-
-    fs.writeFileSync('build/js/app.js', reqjs + ';\n' + mainjs);
-    rmdirSyncRecursive 'build/src'
-    fs.unlinkSync 'build/build.txt'
-
+task 'build', 'builds project', ->
+  sys.print 'building project...'
+  exec 'rm -r build/* && cp -r app/* build/ && ./bin/jacker -c -o build/app.js build/src/main.js', (error, stdout, stderr) ->
+    sys.print stdout + stderr
+    if error
+      throw error
+    else
+      rmdirSyncRecursive 'build/src'
     sys.print 'done!\n'
