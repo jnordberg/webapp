@@ -24,7 +24,7 @@ task 'setup', 'install deps & such', ->
 
 task 'build', 'builds project', ->
   sys.print 'building project...'
-  exec 'rm -r build/* && cp -r app/* build/ && ./bin/jacker -c -o build/app.js build/src/main.js', (error, stdout, stderr) ->
+  exec 'rm -rf build/* && cp -r app/* build/ && ./bin/jacker -c -o build/app.js build/src/main.js', (error, stdout, stderr) ->
     sys.print stdout + stderr
     if error
       throw error
