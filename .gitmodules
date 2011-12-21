@@ -4,3 +4,6 @@
 [submodule "external/coffee-script"]
 	path = external/coffee-script
 	url = https://github.com/jashkenas/coffee-script.git
+[submodule "external/git-remote-deploy"]
+	path = external/git-remote-deploy
+	url = git://github.com/jnordberg/git-remote-deploy.git
