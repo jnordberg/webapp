@@ -11,6 +11,7 @@ The `bin/` directory contains some useful tools.
 * `new` -- create a new webapp instance
 * `init` -- set up development environment
 * `build` -- package application
+* `runserver` -- start development server
 * `deploy` -- deploy application
 * `setup-repo` -- configure deploy repository
 
@@ -27,6 +28,11 @@ Loads dependencies and builds the development javascript loader.
 
 Packages the application using [jacker].   
 Output is placed in `build/`
+
+### runserver
+
+Starts a simple node.js runserver. It serves static files from `app/`.
+Useful for development since jacker's development loader uses XMLHTTPRequests.
 
 ### deploy
 
@@ -63,7 +69,7 @@ When you are done:
 
 Et voila, your application is ready for deployment. All javascript is minified to one file (app.js).
 
-Copy the contents of the build folder to your deployment server or if you want to be fancy - check out the deployment tools included with webapp.
+Copy the contents of the build folder to your deployment server or if you want to be fancy - check out the included deployment tools.
 
 ## Dependencies
 
