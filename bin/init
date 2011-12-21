@@ -12,4 +12,4 @@ cd external/jacker && npm install && cd -
 # bundle coffeescript
 cat external/coffee-script/extras/coffee-script.js >> app/app.js
 # app entry point
-echo '\nrequire("./src/main.js");' >> app/app.js
+echo ";require('./src/main.js');" >> app/app.js
